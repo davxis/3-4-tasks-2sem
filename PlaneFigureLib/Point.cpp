@@ -89,7 +89,7 @@ Point Point::operator+(const Point& vec) {
  * @return Строковое представление точки.
  */
 std::string Point::ToString() const {
-    return string("(") + doubleToString(x) + "; " + doubleToString(y) + ")";
+    return string("(") + to_string(x) + "; " + to_string(y) + ")";
 }
 
 double Point::getX() const {

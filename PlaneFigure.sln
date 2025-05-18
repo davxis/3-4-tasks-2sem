@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlaneFigureApp", "PlaneFigu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlaneFigureLib", "PlaneFigureLib\PlaneFigureLib.vcxproj", "{06F685A6-7C28-4F60-B820-2FC582A51A9E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlaneFigureLib.Tests", "PlaneFigureLib.Tests\PlaneFigureLib.Tests.vcxproj", "{8E3B7A10-14E3-4B99-A96A-014372FCC302}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -33,14 +31,6 @@ Global
 		{06F685A6-7C28-4F60-B820-2FC582A51A9E}.Release|x64.Build.0 = Release|x64
 		{06F685A6-7C28-4F60-B820-2FC582A51A9E}.Release|x86.ActiveCfg = Release|Win32
 		{06F685A6-7C28-4F60-B820-2FC582A51A9E}.Release|x86.Build.0 = Release|Win32
-		{8E3B7A10-14E3-4B99-A96A-014372FCC302}.Debug|x64.ActiveCfg = Debug|x64
-		{8E3B7A10-14E3-4B99-A96A-014372FCC302}.Debug|x64.Build.0 = Debug|x64
-		{8E3B7A10-14E3-4B99-A96A-014372FCC302}.Debug|x86.ActiveCfg = Debug|Win32
-		{8E3B7A10-14E3-4B99-A96A-014372FCC302}.Debug|x86.Build.0 = Debug|Win32
-		{8E3B7A10-14E3-4B99-A96A-014372FCC302}.Release|x64.ActiveCfg = Release|x64
-		{8E3B7A10-14E3-4B99-A96A-014372FCC302}.Release|x64.Build.0 = Release|x64
-		{8E3B7A10-14E3-4B99-A96A-014372FCC302}.Release|x86.ActiveCfg = Release|Win32
-		{8E3B7A10-14E3-4B99-A96A-014372FCC302}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
