@@ -72,24 +72,12 @@ std::istream& operator>>(std::istream& is, Point& p) {
 }
 
 /*
- * @brief Оператор сложения для двух точек. 
- * Возвращает новую точку, координаты которой являются суммой
- * соответствующих координат текущей точки и переданной точки.
- * @param vec Точка, которую нужно сложить с текущей.
- * @return Новая точка, представляющая сумму двух точек.
- */
-Point Point::operator+(const Point& vec) {
-    Point res(x + vec.x, y + vec.y);
-    return res;
-}
-
-/*
  * @brief Преобразует точку в строковое представление. 
  * Возвращает строку, содержащую координаты точки в формате "(x; y)".
  * @return Строковое представление точки.
  */
 std::string Point::ToString() const {
-    return string("(") + to_string(x) + "; " + to_string(y) + ")";
+    return string("(") + doubleToString(x) + "; " + doubleToString(y) + ")";
 }
 
 double Point::getX() const {

@@ -64,7 +64,7 @@ public:
             Point p1(1.5, 2.5);
             Point p2(0.5, -1.5);
 
-            Point result = p1 + p2;
+            Point result(p1.getX() + p2.getX(), p1.getY() + p2.getY());
 
             Assert::AreEqual(2.0, result.getX());
             Assert::AreEqual(1.0, result.getY());

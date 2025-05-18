@@ -48,11 +48,11 @@ int main() {
         cout << "Ошибка: " << msg << endl; // Выводим сообщение об ошибке
     }
     // Вывод фигур
-    for (int i = 0; i < figures.size(); i++) {
+    for (size_t i = 0; i < figures.size(); i++) {
         cout << *figures[i] << endl;
     }
     // Освобождение памяти на куче
-    for (int i = 0; i < figures.size(); i++) {
+    for (size_t i = 0; i < figures.size(); i++) {
         delete figures[i];
     }
     figures.clear();
