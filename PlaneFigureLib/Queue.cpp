@@ -20,7 +20,7 @@ Queue::~Queue() {
     clear();
 }
 
-void Queue::enqueue(int value) {
+void Queue::enqueue(const int value) {
     Node* node = new Node(value);
     if (rear) {
         rear->next = node;
@@ -44,12 +44,12 @@ int Queue::dequeue() {
     return val;
 }
 
-bool Queue::isEmpty() {
+bool Queue::isEmpty() const {
     return front == nullptr;
 }
 
 
-int Queue::peek() {
+int Queue::peek() const {
     if (isEmpty()) {
         throw "Queue is empty";
     }
@@ -93,7 +93,7 @@ std::ostream& operator<<(ostream& os, const Queue& q) {
 }
 
 std::istream& operator>>(istream& is, Queue& q) {
-    int val;
+    int val = 0;
     while (is >> val) {
         q.enqueue(val);
     }

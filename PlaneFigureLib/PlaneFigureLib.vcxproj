@@ -23,7 +23,6 @@
     <ClInclude Include="Queue.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Queue.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

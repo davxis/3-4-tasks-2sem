@@ -3,6 +3,6 @@
 struct Node {
     int data;
     Node* next;
-    Node(int val);
+    Node(const int val) : data(val), next(nullptr) {}
 };
 

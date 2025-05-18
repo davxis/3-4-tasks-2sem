@@ -11,10 +11,10 @@ public:
     Queue();
     Queue(const Queue& other);
     ~Queue();
-    void enqueue(int value);
+    void enqueue(const int value);
     int dequeue();
-    bool isEmpty();
-    int peek();
+    bool isEmpty() const;
+    int peek() const;
     void clear();
 
     Queue& operator=(const Queue& other);
