@@ -38,13 +38,14 @@ int main() {
         //
         // По заданию нет требования относительно количества элементов
         // в коллекции.
-        for (int i = 0; i < 3; i++) {
-            Rectangle* r = new Rectangle(maxScreenResolution);
-            cout << "Rectangle №" << i + 1 << ": ";
-            cin >> *r;
-            figures.push_back(r);
+        for (int i = 0; i < 4; i++) {
+            Point* p = new Point();
+            cout << "Point " << i + 1 << " (x y): ";
+            cin >> *p;
+            figures.push_back(p);
         }
-    } catch (const char* msg) { // Обработка исключений
+    }
+    catch (const char* msg) { // Обработка исключений
         cout << "Ошибка: " << msg << endl; // Выводим сообщение об ошибке
     }
     // Вывод фигур
