@@ -1,4 +1,4 @@
-п»ї#include "pch.h"
+#include "pch.h"
 #include "CppUnitTest.h"
 
 #include "Angle.h"
@@ -13,15 +13,15 @@ namespace PlaneFigureLibTests {
 public:
 
         TEST_METHOD(IsRight_RightAngle_ReturnsTrue) {
-            // РџСЂСЏРјРѕР№ СѓРіРѕР» РІ С‚РѕС‡РєРµ B (90 РіСЂР°РґСѓСЃРѕРІ)
+            // Прямой угол в точке B (90 градусов)
             Angle angle1(Point(0, 0), Point(0, 1), Point(1, 1));
             Assert::IsTrue(angle1.isRight());
 
-            // Р”СЂСѓРіРѕР№ РїСЂСЏРјРѕР№ СѓРіРѕР»
+            // Другой прямой угол
             Angle angle2(Point(1, 1), Point(1, 0), Point(0, 0));
             Assert::IsTrue(angle2.isRight());
 
-            // Р•С‰Рµ РѕРґРёРЅ РІР°СЂРёР°РЅС‚ РїСЂСЏРјРѕРіРѕ СѓРіР»Р°
+            // Еще один вариант прямого угла
             Angle angle3(Point(2, 3), Point(2, 1), Point(4, 1));
             Assert::IsTrue(angle3.isRight());
         }

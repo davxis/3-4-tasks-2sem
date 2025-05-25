@@ -34,18 +34,12 @@ int main() {
     // Ввод 3х прямоугольников.
     try {
         // Допустим, для примера, запросим у пользователя
-        // создание 3х прямоугольников.
-        //
-        // По заданию нет требования относительно количества элементов
-        // в коллекции.
-        for (int i = 0; i < 4; i++) {
-            Point* p = new Point();
-            cout << "Point " << i + 1 << " (x y): ";
-            cin >> *p;
-            figures.push_back(p);
-        }
-    }
-    catch (const char* msg) { // Обработка исключений
+        // создание одного прямоугольника, поместим его в вектор.
+        Rectangle* r = new Rectangle(maxScreenResolution);
+        cout << "Rectangle: ";
+        cin >> *r;
+        figures.push_back(r);
+    } catch (const char* msg) { // Обработка исключений
         cout << "Ошибка: " << msg << endl; // Выводим сообщение об ошибке
     }
     // Вывод фигур
