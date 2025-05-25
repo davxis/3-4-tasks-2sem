@@ -10,12 +10,14 @@ private:
 public:
     Queue();
     Queue(const Queue& other);
+    Queue(Queue&& other) noexcept;
     ~Queue();
     void enqueue(const int value);
     int dequeue();
     bool isEmpty() const;
     int peek() const;
     void clear();
+    size_t size() const;
 
     Queue& operator=(const Queue& other);
 

@@ -9,11 +9,52 @@ Queue::Queue() : front(nullptr), rear(nullptr) {
 }
 
 Queue::Queue(const Queue& other) : front(nullptr), rear(nullptr) {
-    Node* cur = other.front;
-    while (cur) {
-        enqueue(cur->data);
-        cur = cur->next;
+    // «десь был следующий код:
+    //  Node* cur = other.front;
+    //  while (cur) {
+    //    enqueue(cur->data);
+    //    cur = cur->next;
+    //  }
+
+    // Ќа ревью было запрошено:
+    // "ѕросто переопределить хвост и голову".
+
+    // ≈сли имелось в виду сделать так:
+    //  this->front = front;
+    //  this->rear = rear;
+    // то это не верно, т.к. в этом случае и other и this
+    // будут иметь доступ к одним и тем же узлам очереди,
+    // а конструктор копировани€ (не перемещени€) предполагает
+    // создание полноценного клона.
+    //
+    // ≈сли просто скопировать адреса, то после вызова деструктора дл€
+    // this, как только вызоветс€ деструктор дл€ other случитс€ ошибка,
+    // т.к. данные на куче уже были освобождены.
+    
+    // ≈сли согласно ревью под словами "ѕросто переопределить хвост и голову"
+    // имелось в виду "Ќе использовать готовые методы класса Queue
+    // наподобие enqueue(), то вот исправленный вариант:
+
+    Node* otherCurrent = other.front;
+    Node* theRear = nullptr;
+    front = nullptr;
+    while (otherCurrent) {
+        Node* node = new Node(otherCurrent->data);
+        if (!front) {
+            front = node;
+        }
+        if (theRear) {
+            theRear->next = node;
+        }
+        theRear = node;
+        otherCurrent = otherCurrent->next;
     }
+    rear = theRear;
+}
+
+Queue::Queue(Queue&& other) noexcept : front(other.front), rear(other.rear) {
+    other.front = nullptr;
+    other.rear = nullptr;
 }
 
 Queue::~Queue() {
@@ -60,6 +101,16 @@ void Queue::clear() {
     while (!isEmpty()) {
         dequeue();
     }
+}
+
+size_t Queue::size() const {
+    size_t cnt = 0;
+    Node* cur = front;
+    while (cur) {
+        cnt++;
+        cur = cur->next;
+    }
+    return cnt;
 }
 
 Queue& Queue::operator=(const Queue& other) {
