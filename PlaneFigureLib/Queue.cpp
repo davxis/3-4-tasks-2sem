@@ -9,32 +9,6 @@ Queue::Queue() : front(nullptr), rear(nullptr) {
 }
 
 Queue::Queue(const Queue& other) : front(nullptr), rear(nullptr) {
-    // Здесь был следующий код:
-    //  Node* cur = other.front;
-    //  while (cur) {
-    //    enqueue(cur->data);
-    //    cur = cur->next;
-    //  }
-
-    // На ревью было запрошено:
-    // "Просто переопределить хвост и голову".
-
-    // Если имелось в виду сделать так:
-    //  this->front = front;
-    //  this->rear = rear;
-    // то это не верно, т.к. в этом случае и other и this
-    // будут иметь доступ к одним и тем же узлам очереди,
-    // а конструктор копирования (не перемещения) предполагает
-    // создание полноценного клона.
-    //
-    // Если просто скопировать адреса, то после вызова деструктора для
-    // this, как только вызовется деструктор для other случится ошибка,
-    // т.к. данные на куче уже были освобождены.
-    
-    // Если согласно ревью под словами "Просто переопределить хвост и голову"
-    // имелось в виду "Не использовать готовые методы класса Queue
-    // наподобие enqueue(), то вот исправленный вариант:
-
     Node* otherCurrent = other.front;
     Node* theRear = nullptr;
     front = nullptr;
@@ -89,7 +63,6 @@ bool Queue::isEmpty() const {
     return front == nullptr;
 }
 
-
 int Queue::peek() const {
     if (isEmpty()) {
         throw "Queue is empty";
@@ -122,6 +95,18 @@ Queue& Queue::operator=(const Queue& other) {
     while (cur) {
         enqueue(cur->data);
         cur = cur->next;
+    }
+    return *this;
+}
+
+// Р”РћР‘РђР’Р›Р•РќРћ: move assignment operator
+Queue& Queue::operator=(Queue&& other) noexcept {
+    if (this != &other) {
+        clear();          // РћС‡РёС‰Р°РµРј С‚РµРєСѓС‰СѓСЋ РѕС‡РµСЂРµРґСЊ
+        front = other.front;  // РџРµСЂРµРјРµС‰Р°РµРј РґР°РЅРЅС‹Рµ РёР· other
+        rear = other.rear;
+        other.front = nullptr;  // РћР±РЅСѓР»СЏРµРј other
+        other.rear = nullptr;
     }
     return *this;
 }
