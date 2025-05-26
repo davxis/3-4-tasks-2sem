@@ -5,8 +5,16 @@
 
 class Queue {
 private:
+    // Вложенная структура Node
+    struct Node {
+        int data;
+        Node* next;
+        Node(const int val) : data(val), next(nullptr) {}
+    };
+
     Node* front;
     Node* rear;
+
 public:
     Queue();
     Queue(const Queue& other);
@@ -26,5 +34,3 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Queue& q);
     friend std::istream& operator>>(std::istream& is, Queue& q);
 };
-
-
