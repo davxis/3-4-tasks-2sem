@@ -33,28 +33,19 @@ int main() {
         cin >> point3;
 
         // Создание прямоугольника с проверкой границ экрана
-        Rectangle* r = new Rectangle(maxScreenResolution, point1, point2, point3);
-        figures.push_back(r);
+        Rectangle r = Rectangle(maxScreenResolution, point1, point2, point3);
+
+        // Вывод информации о прямоугольнике
+        cout << "\nСозданный прямоугольник:\n";
+        r.print();  // Предполагается, что у Rectangle есть метод print()
 
     } catch (const char* msg) {
         cout << "Ошибка: " << msg << endl;
-        return 1; // Завершаем программу с кодом ошибки
+        return 1;
     } catch (...) {
         cout << "Неизвестная ошибка при создании прямоугольника" << endl;
-        return 1; // Завершаем программу с кодом ошибки
+        return 1;
     }
-
-    // Вывод информации о созданной фигуре
-    if (!figures.empty()) {
-        cout << "\nСозданный прямоугольник:\n";
-        cout << *figures[0] << endl;
-    }
-
-    // Освобождение памяти
-    for (auto figure : figures) {
-        delete figure;
-    }
-    figures.clear();
 
     return 0;
 }
