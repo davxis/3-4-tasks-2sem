@@ -17,7 +17,6 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "rus");
     const Point maxScreenResolution(640, 480); // Максимальное разрешение экрана
-    vector<Figure2D*> figures;
 
     try {
         // Ввод трех точек для прямоугольника
