@@ -27,7 +27,8 @@ public:
     void clear();
     size_t size() const;
 
-    Queue& operator=(const Queue& other);
+    Queue& operator=(const Queue& other);  // Copy assignment
+    Queue& operator=(Queue&& other) noexcept;  // Move assignment (добавлен)
 
     std::string toString() const;
 
